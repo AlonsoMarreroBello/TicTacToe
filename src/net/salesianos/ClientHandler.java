@@ -35,7 +35,7 @@ public class ClientHandler implements Runnable {
 
   private void processCommand(String command) {
     if (command.startsWith("CREATE ")) {
-      if (currentRoom == null) {
+      if (currentRoom != null) {
         out.println("No puedes estar en dos salas a la vez");
       } else {
         String roomId = command.substring(7);
@@ -43,7 +43,7 @@ public class ClientHandler implements Runnable {
         out.println("Sala creada: " + roomId);
       }
     } else if (command.startsWith("JOIN ")) {
-      if (currentRoom == null) {
+      if (currentRoom != null) {
         out.println("No puedes estar en dos salas a la vez");
       } else {
         String roomId = command.substring(5);
